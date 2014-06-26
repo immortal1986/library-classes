@@ -17,4 +17,6 @@ class Db_ext {
                 }
             }
         }
+    protected function __construct(){}
+    protected function __clone(){}
 }
