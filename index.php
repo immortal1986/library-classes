@@ -10,7 +10,7 @@ class CheakIntegerData implements CheakData{
        }elseif(is_float($data)){
            return $this->data =  strip_tags(trim((float)$data));
        }else{
-           return false;
+           return "not int";
        }
     }
 }
@@ -35,6 +35,6 @@ class Factory{
         }
 
     }
-
-
 }
+$odj = Factory::CreateCheakers('int');
+echo $odj->returnClearData("s");
