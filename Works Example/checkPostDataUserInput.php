@@ -1,6 +1,4 @@
-
 <?php
-
 class checkPostDataUserInput {
     public $param = array();
         public function __construct(array $arrPost){
@@ -16,12 +14,11 @@ class checkPostDataUserInput {
             $this->param['email'] =  $this->checkData($arrPost['email']);
             $this->param['password'] =  $this->checkPass($arrPost['password']);
         }
-
         protected function checkData($var){
             if(is_string($var)){
                 return $var = (string)strip_tags(trim($var));
             }elseif(is_numeric($var)){
-                return $var = (int)trim($var);
+                return $var = (int)abs(trim($var));
             }else{
                 return false;
             }
@@ -37,18 +34,10 @@ class checkPostDataUserInput {
         }
 
 }
-
-
-
-
-
-
 $obj = new checkPostDataUserInput($_POST);
 $obj->getInputData($_POST);
 print_r($obj->param);
-
 ?>
-
 <form action="" method="post">
     <input type="text" name="name"/>
     <input type="password" name="password"/>
